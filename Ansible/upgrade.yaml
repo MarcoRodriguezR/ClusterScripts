@@ -1,0 +1,12 @@
+---
+- name: Actualizar y actualizar paquetes en los servidores
+  hosts: servers
+  become: true
+  tasks:
+    - name: Actualizar la lista de paquetes
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Actualizar todos los paquetes
+      ansible.builtin.apt:
+        upgrade: dist

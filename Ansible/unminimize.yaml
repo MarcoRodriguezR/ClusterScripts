@@ -1,0 +1,12 @@
+---
+- name: Ejecutar unminimize en servidores
+  hosts: servers
+  become: true
+  tasks:
+    - name: Ejecutar unminimize
+      command: "yes | unminimize"
+      register: unminimize_output
+
+    - name: Mostrar salida del comando unminimize
+      debug:
+        var: unminimize_output.stdout_lines
